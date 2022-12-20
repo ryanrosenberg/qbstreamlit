@@ -1,0 +1,5 @@
+pandas
+numpy
+altair
+streamlit
+streamlit_aggrid

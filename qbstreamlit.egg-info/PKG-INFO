@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: qbstreamlit
+Version: 0.0.1
+Summary: Functions for quizbowl detailed stats
+Home-page: https://github.com/ryanrosenberg/demo-detailed-stats
+Author: Ryan Rosenberg
+Author-email: ryanr345@gmail.com
+Requires-Python: >=3.7, <4
