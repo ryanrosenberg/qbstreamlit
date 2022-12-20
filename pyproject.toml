@@ -9,6 +9,7 @@ authors = [
   { name="Ryan Rosenberg", email="ryanr345@gmail.com" },
 ]
 description = "Functions for Streamlit apps displaying detailed quizbowl stats"
+readme = README.md
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
