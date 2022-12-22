@@ -1,8 +1,18 @@
 Metadata-Version: 2.1
 Name: qbstreamlit
-Version: 0.0.1
-Summary: Functions for quizbowl detailed stats
+Version: 0.1.0
+Summary: Functions for Streamlit apps displaying detailed quizbowl stats
 Home-page: https://github.com/ryanrosenberg/demo-detailed-stats
 Author: Ryan Rosenberg
-Author-email: ryanr345@gmail.com
+Author-email: Ryan Rosenberg <ryanr345@gmail.com>
+Project-URL: Homepage, https://github.com/ryanrosenberg/qbstreamlit
+Project-URL: Bug Tracker, https://github.com/ryanrosenberg/qbstreamlit/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
 Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# qbstreamlit
+
+Functions for quizbowl detailed stats.

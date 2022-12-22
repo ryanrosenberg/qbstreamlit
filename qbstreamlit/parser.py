@@ -47,7 +47,7 @@ def parse_stats(qbj, player_recoding, team_recoding):
         player_stats = player_stats.drop(columns=['0'])
 
     for player in match_players:
-        if player['name'] not in player_stats['player'].values:
+        if player_dict[f"{player['name']}-{team_dict[player['team']]}"] not in player_stats['player'].values:
             player_stats.loc[len(player_stats.index)] = [
                 player['name'], player['team'], 0, 0, 0]
 
@@ -213,9 +213,15 @@ def populate_db_qbjs_nasat(tournament):
     for i, qbj_path in enumerate(glob.glob(f'qbjs/{st.session_state.tournament}/*.qbj')):
         with open(qbj_path, 'r') as f:
             qbj = json.load(f)
-        with open('round-recoding.json', 'r') as f:
-            round_recoding = json.load(f)
-        packet = round_recoding[st.session_state.tournament][qbj_path[5:]]
+        
+        print(i)
+
+        if 'round-recoding.json' in glob.glob('*'):
+            with open('round-recoding.json', 'r') as f:
+                round_recoding = json.load(f)
+            packet = round_recoding[st.session_state.tournament][qbj_path[5:]]
+        else:
+            packet = re.search(r'(?<=Round_)\d+', qbj_path).group(0)
         buzzes, bonuses, player_stats, team_stats = parse_stats(
             qbj,
             player_recoding,
@@ -230,6 +236,9 @@ def populate_db_qbjs_nasat(tournament):
         player_stats['game_id'] = i
         team_stats['packet'] = packet
         team_stats['game_id'] = i
+
+        if i == 128:
+            print(player_stats)
 
         all_buzzes.append(buzzes)
         all_bonuses.append(bonuses)

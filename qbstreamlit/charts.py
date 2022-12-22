@@ -96,6 +96,9 @@ def make_scoresheet(game_id, buzzes, bonuses, player_stats, has_bonuses=True):
     game_buzzes['value'] = game_buzzes['value'].astype(int)
     game_buzzes['answer'] = [qbstreamlit.utils.sanitize_answer(
         answer) for answer in game_buzzes['answer']]
+    
+    team1_name = game_buzzes['team'].unique().tolist()[0]
+    team2_name = game_buzzes['team'].unique().tolist()[1]
 
     if has_bonuses:
         game_bonuses = bonuses[bonuses['game_id'] == game_id]
@@ -118,9 +121,6 @@ def make_scoresheet(game_id, buzzes, bonuses, player_stats, has_bonuses=True):
             value_vars=['part1_value', 'part2_value', 'part3_value'],
             var_name='part', value_name='value'
         )
-
-    team1_name = game_buzzes['team'].unique().tolist()[0]
-    team2_name = game_buzzes['team'].unique().tolist()[1]
 
     team1_buzzes = game_buzzes[game_buzzes['team'] == team1_name]
     team2_buzzes = game_buzzes[game_buzzes['team'] == team2_name]
